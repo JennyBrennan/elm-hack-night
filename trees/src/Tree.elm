@@ -10,6 +10,24 @@ empty : Tree a
 empty =
   Empty
 
+sum : Tree number -> number
+sum tree =
+  case tree of
+    Empty ->
+      0
+
+    Node v left right ->
+      v + sum left + sum right
+
+flatten : Tree a -> List a
+flatten tree =
+  case tree of
+    Empty ->
+      []
+
+    Node v left right ->
+      flatten left ++ [v] ++ flatten right
+
 
 -- singleton : a -> Tree a
 
